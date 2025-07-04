@@ -1,0 +1,506 @@
+/* ===== CONFIGURAÇÕES DE IMPRESSÃO ===== */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+    
+    body { 
+        margin: 0 !important; 
+        padding: 0 !important; 
+        background: white !important;
+    }
+    
+    .no-print { 
+        display: none !important; 
+    }
+    
+    .page-break { 
+        page-break-after: always; 
+    }
+    
+    .etiquetas-container {
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 5mm !important;
+        width: 100% !important;
+        max-width: 210mm !important;
+        height: auto !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2mm !important;
+        background: white !important;
+    }
+    
+    .etiqueta {
+        border: 2px solid #2c3e50 !important;
+        border-radius: 8px !important;
+        padding: 3mm !important;
+        background: white !important;
+        width: 90mm !important;
+        height: 135mm !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        position: relative !important;
+        break-inside: avoid !important;
+    }
+    
+    .urgente {
+        background: #e74c3c !important; /* Cor sólida para impressão */
+        color: white !important;
+    }
+    
+    .contato-section {
+        background: #3498db !important; /* Cor sólida para impressão */
+        color: white !important;
+    }
+    
+    .observacoes {
+        background: rgba(241, 196, 15, 0.1) !important;
+        border-left: 3px solid #f1c40f !important;
+    }
+}
+
+/* ===== ESTILOS GERAIS ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* ===== FORMULÁRIO DE ENTRADA ===== */
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-input {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.quantity-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background: #2980b9;
+    transform: scale(1.1);
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #27ae60, #219a50);
+    color: white;
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+.btn-warning {
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ===== CONTAINER DAS ETIQUETAS ===== */
+.etiquetas-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 5mm;
+    width: 190mm;
+    background: white;
+    padding: 10mm;
+    margin: 0 auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin-top: 30px; /* Adicionado para espaçamento com instruções */
+}
+
+/* ===== ETIQUETA INDIVIDUAL ===== */
+.etiqueta {
+    border: 2px solid #2c3e50;
+    border-radius: 8px;
+    padding: 8mm;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    min-height: 120mm;
+}
+
+/* ===== CABEÇALHO DA ETIQUETA ===== */
+.header {
+    text-align: center;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.urgente {
+    background: #e74c3c; /* Cor sólida para o HTML e PDF */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.empresa {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 4px;
+}
+
+.titulo {
+    font-size: 14px;
+    font-weight: 600;
+    color: #34495e;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== SEÇÃO DE INFORMAÇÕES ===== */
+.info-section {
+    margin: 8px 0;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+    padding: 4px;
+    background: rgba(52, 73, 94, 0.05);
+    border-radius: 4px;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #2c3e50;
+    min-width: 80px;
+    font-size: 11px;
+}
+
+.info-value {
+    border-bottom: 1px solid #bdc3c7;
+    flex: 1;
+    padding: 2px 4px;
+    font-size: 12px;
+    min-height: 16px;
+}
+
+/* ===== SEÇÃO DE CONTATO ===== */
+.contato-section {
+    background: #3498db; /* Cor sólida para o HTML e PDF */
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    margin-top: auto;
+}
+
+.contato-title {
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.contato-info {
+    font-size: 10px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.contato-info strong {
+    color: #ecf0f1;
+}
+
+/* ===== CÓDIGO DE RASTREAMENTO ===== */
+.codigo-rastreamento {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(52, 73, 94, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    color: #7f8c8d;
+    font-family: monospace;
+}
+
+/* ===== SEÇÃO DE OBSERVAÇÕES ===== */
+.observacoes {
+    margin-top: 8px;
+    padding: 6px;
+    background: rgba(241, 196, 15, 0.1);
+    border-left: 3px solid #f1c40f;
+    border-radius: 0 4px 4px 0;
+}
+
+.observacoes-title {
+    font-size: 10px;
+    font-weight: bold;
+    color: #e67e22;
+    margin-bottom: 4px;
+}
+
+.observacoes-content {
+    font-size: 9px;
+    color: #7f8c8d;
+    line-height: 1.3;
+    min-height: 20px;
+}
+
+/* ===== PLACEHOLDER DO QR CODE ===== */
+.qr-placeholder {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #ecf0f1, #bdc3c7);
+    border: 1px solid #95a5a6;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: #7f8c8d;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+
+/* ===== INSTRUÇÕES DE USO (MAIS DISCRETAS AINDA) ===== */
+.instructions-container {
+    background: white;
+    padding: 5px 10px; /* Reduzido ainda mais o padding */
+    border-radius: 8px; /* Borda mais arredondada e suave */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08); /* Sombra ainda mais sutil */
+    max-width: 700px; /* Largura um pouco menor */
+    margin: 0 auto 15px auto; /* Margem inferior reduzida */
+    text-align: center;
+}
+
+.instructions-container h2 {
+    color: #2c3e50;
+    font-size: 14px; /* Reduzido o tamanho da fonte do título */
+    margin-bottom: 3px; /* Margem inferior bem pequena */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Espaçamento entre ícone e texto menor */
+}
+
+.instructions-container h2 img {
+    width: 16px; /* Ícone menor */
+    height: 16px;
+}
+
+.instructions-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    max-width: 450px; /* Largura da lista um pouco menor */
+    margin: 0 auto;
+}
+
+.instructions-container li {
+    background: #fdfdfd; /* Fundo mais claro */
+    border-left: 2px solid #3498db; /* Borda ainda mais fina */
+    margin-bottom: 3px; /* Margem inferior reduzida */
+    padding: 4px 8px; /* Padding bem pequeno */
+    border-radius: 3px;
+    font-size: 11px; /* Tamanho da fonte menor */
+    color: #666; /* Cor do texto um pouco mais clara */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02); /* Sombra quase imperceptível */
+}
+
+.instructions-container kbd {
+    background-color: #f0f0f0; /* Cor de fundo mais clara */
+    border-radius: 2px;
+    border: 1px solid #c0c0c0; /* Borda mais clara */
+    box-shadow: none;
+    color: #555; /* Cor do texto mais clara */
+    display: inline-block;
+    font-size: .7em; /* Tamanho da fonte mínimo */
+    font-weight: 700;
+    line-height: 1;
+    padding: 0 2px; /* Padding mínimo */
+    white-space: nowrap;
+}
+
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .action-buttons {
+        flex-direction: column;
+    }
+    .etiquetas-container {
+        width: 95vw;
+        grid-template-columns: 1fr;
+    }
+    .instructions-container {
+        padding: 5px 8px; /* Ajuste para telas menores */
+    }
+    .instructions-container h2 {
+        font-size: 13px;
+    }
+    .instructions-container li {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+    .instructions-container h2 img {
+        width: 14px; /* Ícone menor em telas menores */
+        height: 14px;
+    }
+}
+
+/* ===== ANIMAÇÕES ===== */
+.etiqueta {
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.success-message {
+    background: linear-gradient(45deg, #27ae60, #219a50);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

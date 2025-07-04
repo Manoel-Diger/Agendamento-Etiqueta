@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Etiquetas - MD Transportes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="instructions-container no-print">
+        <h2><img src="https://img.icons8.com/ios-filled/24/3498db/rules.png" alt="Instruções" style="vertical-align: middle;"> Instruções de Uso</h2>
+        <ul>
+            <li>Imprima em papel A4 (210x297mm) em qualidade normal.</li>
+            <li>Preencha todos os campos antes de gerar as etiquetas.</li>
+            <li>Destaque e cole a etiqueta em local visível no produto/documento.</li>
+            <li>Mantenha os dados de contato sempre atualizados para o suporte ao motorista.</li>
+            <li>Use <kbd>Ctrl+P</kbd> para imprimir e <kbd>Ctrl+S</kbd> para baixar o PDF.</li>
+        </ul>
+    </div>
+
+    <div class="form-container no-print">
+        <h1 class="form-title">🚚 Sistema de Etiquetas MD Transportes</h1>
+        
+        <form id="etiquetaForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">📅 Data da Entrega</label>
+                    <input type="date" class="form-input" id="dataEntrega" required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">🕐 Horário</label>
+                    <input type="time" class="form-input" id="horarioEntrega" required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">👤 Nome do Destinatário</label>
+                    <input type="text" class="form-input" id="destinatario" placeholder="Nome completo" required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">📞 Telefone</label>
+                    <input type="tel" class="form-input" id="telefone" placeholder="(XX) XXXXX-XXXX" required autocomplete="off">
+                </div>
+                
+                <div class="form-group full-width">
+                    <label class="form-label">📍 Endereço Completo</label>
+                    <input type="text" class="form-input" id="endereco" placeholder="Rua, número, bairro, cidade - CEP" required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">📦 Produto/Serviço</label>
+                    <input type="text" class="form-input" id="produto" placeholder="Descrição do produto" required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">👨‍✈️ Responsável</label>
+                    <select class="form-input" id="responsavel" required autocomplete="off">
+                        <option value="">Selecione o responsável</option>
+                        <option value="João - (91) 99999-9999">João - (91) 99999-9999</option>
+                        <option value="Maria - (91) 99999-9999">Maria - (99) 99999-9999</option>
+                        <option value="Carlos - (91) 99999-9999">Carlos - (91) 99999-9999</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label class="form-label">⚠️ Observações</label>
+                    <textarea class="form-input form-textarea" id="observacoes" placeholder="Instruções especiais, restrições, etc." autocomplete="off"></textarea>
+                </div>
+            </div>
+            
+            <div class="quantity-controls">
+                <label class="form-label">Quantidade de Etiquetas:</label>
+                <button type="button" class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                <input type="number" class="form-input quantity-input" id="quantidade" value="4" min="1" max="20" autocomplete="off">
+                <button type="button" class="quantity-btn" onclick="changeQuantity(1)">+</button>
+            </div>
+            
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-primary">📋 Gerar Etiquetas</button>
+                <button type="button" class="btn btn-success" onclick="imprimirEtiquetas()">🖨️ Imprimir</button>
+                <button type="button" class="btn btn-danger" onclick="gerarPDF()">📄 Baixar PDF</button>
+                <button type="button" class="btn btn-warning" onclick="limparFormulario()">🗑️ Limpar</button>
+            </div>
+        </form>
+        
+        <div id="successMessage" class="success-message" style="display: none;"></div>
+    </div>
+
+    <div class="etiquetas-container" id="etiquetasContainer">
+        </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
