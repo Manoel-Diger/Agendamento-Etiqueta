@@ -3,9 +3,7 @@ let etiquetasGeradas = [];
 let contadorCodigo = 1;
 
 // Inicializar data atual
-const d = new Date();
-document.getElementById('dataEntrega').value = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
-
+document.getElementById('dataEntrega').value = new Date().toISOString().split('T')[0];
 document.getElementById('horarioEntrega').value = new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
 
 // Função para alterar quantidade
@@ -96,7 +94,11 @@ function gerarEtiquetas(event) {
                 <div class="codigo-rastreamento">${codigo}</div>
                 <div class="header">
                     <div class="urgente">🚨 ENTREGA URGENTE</div>
-                    <div class="empresa">MD TRANSPORTES</div>
+                    <div class="empresa">
+                    <img src="image/Agiily.png" alt="Logo" style="max-height: 25px; vertical-align: middle; margin-right: 6px; border-radius: 3px; box-shadow: 0 0 2px #ccc;">
+                     MD TRANSPORTES
+            </div>
+
                     <div class="titulo">Carga Agendada</div>
                 </div>
                 
@@ -114,7 +116,7 @@ function gerarEtiquetas(event) {
                         <span class="info-value">${dados.destinatario}</span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">📞 Telefone:</span>
+                        <span classx'="info-label">📞 Telefone:</span>
                         <span class="info-value">${dados.telefone}</span>
                     </div>
                     <div class="info-row">
