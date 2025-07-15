@@ -3,7 +3,9 @@ let etiquetasGeradas = [];
 let contadorCodigo = 1;
 
 // Inicializar data atual
-document.getElementById('dataEntrega').value = new Date().toISOString().split('T')[0];
+const d = new Date();
+document.getElementById('dataEntrega').value = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+
 document.getElementById('horarioEntrega').value = new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
 
 // Função para alterar quantidade
